@@ -1,7 +1,0 @@
-On This Day (in history) - Database, L. Sidebar
-Recommendations - Database, R. Sidebar
-Empires Tab - Map w/ Clickable Flags, 1 Empire = 1 Portal (Separate Folder)
-Javascript (?)
-Footer = Reference List
-Link to Historic Tourist Websites (Ex. Forts or Settlements)
-British inventor created dip pen (replaces quill) in 1822(?)
