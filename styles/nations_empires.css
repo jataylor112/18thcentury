@@ -1,0 +1,215 @@
+
+body  {
+	font-family: Times New Roman;
+	margin: 0;
+	padding: 0;
+	border: 3px solid black;
+}
+h1, h2, h3, p {
+	margin: 0;
+	padding: 0;
+}
+a {
+	background-color: black;
+}
+
+/* Header */
+header {
+	background-color: black;
+	background-image: url("../images/maproom.jpg"), url("../images/climbingquebec.jpg"),
+		url("../images/theswing.jpg");
+	background-position: left center, center center, right center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 33.35% 85%;
+}
+header h2 {
+	font-size: 300%;
+	background-color: black;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	text-shadow: 0 0 10px black,0 0 10px green,
+                 0 0 10px black,0 0 10px green,
+                 0 0 10px black,0 0 10px green,
+                 0 0 10px black,0 0 10px green;
+	transition: 0.4s;
+}
+header h3 {
+	font-size: 150%;
+	line-height: 25em;
+	color: white;
+	text-shadow: 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red;
+}
+header a:hover, a:focus, a:link {
+	color: green;
+}
+header h3 a:hover, a:focus, a:link {
+	color: red;
+	background-color: transparent;
+}
+
+/* Topbar */
+#topbar {
+	background-color: black;
+	font-weight: bold;
+	font-size: 110%;
+}
+#topbar ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: block;
+	position: relative;
+	text-align: center;
+}
+#topbar a {
+	color: white;
+	padding: 14px 16px;
+}
+#topbar a:link, a:visited {
+    color: white;
+}
+#topbar a:hover, a:focus {
+    color: yellow;
+}
+#topbar ul li a.current{
+	color: red;
+}
+#topbar ul li{
+	float: left;
+	width: 20%;
+}
+#topbar ul li a {
+	display: block;
+	text-decoration: none;
+	padding-top: 1em;
+}
+#topbar ul ul {
+	display: none;
+	position: absolute;
+	background-color: black;
+	width: 120px;
+}
+#topbar ul ul li {
+	float: none;
+	width: 110px;
+	text-align: center;
+	padding: 10px 0;
+}
+#topbar ul ul li a:link{
+	margin: 0;
+}
+#topbar ul ul il a{
+	text-align: center;
+	display: block;
+}
+/* Main */
+main {
+	text-align: center;
+}
+main h1 {
+	font-size: 280%;
+	margin-bottom: .5em;
+}
+main h2 {
+	font-size: 200%;
+}
+main h3 {
+	text-align: left;
+	font-size: 110%;
+	margin-bottom: .5em;
+}
+main p {
+	margin-bottom: .5em;
+	font-size: 120%;
+}
+main ul li {
+	margin: 0;
+	padding: 0px 0px 36px 88px;
+	list-style: none;
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: 200px;
+	height: 160px;
+} /*
+caption {
+	font-family: ;
+} */
+thead {
+	text-align: center;
+	font-style: italic;
+}
+td {
+	padding: 0.15em;
+	text-align: center;
+	height: 300px;
+	width: 400px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 50% 80%;
+}
+#border {
+	border: solid 2px black;
+	border-bottom: none;
+}
+#border_none {
+	border: solid 2px black;
+	border-top: none;
+	border-bottom: none;
+}
+#border_last {
+	border: solid 2px black;
+}
+#uk_background {
+	background-image: url("../images/uk_background.jpg");
+	background-size: 80%;
+	background-attachment: fixed;
+}
+#uk_1 {
+	background-image: url("../images/flags/uk1.png"), url("../images/flags/uk2.png");
+	background-position: left, right;
+}
+#uk_2 {
+	background-image: url("../images/flags/england.png"), url("../images/flags/scotland.png"),
+	url("../images/flags/ireland.png");
+	background-position: left, center, right;
+	background-size: 33.35% 80%;
+}
+#france_background {
+	background-image: url("../images/france_background.jpg");
+	background-attachment: fixed;
+}
+#france_1 {
+	background-image: url("../images/flags/france_k.png");
+}
+#france_2 {
+	background-image: url("../images/flags/france_r.png");
+}
+
+/* Footer */
+footer {
+	border-top: 2px solid black;
+	padding: 3px;
+	clear: both;
+    background-image: #990000;
+}
+footer p {
+	font-size: 90%;
+	text-align: center;
+}
+
+@media print {
+	body {
+		background-color: white;
+	}
+	figure {
+		display: none;
+	}
+	#topbar {
+		display: none;
+	}
+}

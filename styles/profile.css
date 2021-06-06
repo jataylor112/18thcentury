@@ -1,0 +1,236 @@
+
+body  {
+	font-family: Times New Roman;
+	margin: 0;
+	padding: 0;
+	border: 3px solid black;
+}
+h1, h2, h3, p {
+	margin: 0;
+	padding: 0;
+}
+a {
+	background-color: black;
+}
+.cookie_banner {
+  position: fixed;
+  bottom: 40px;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  padding: 5px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+.close {
+  height: 20px;
+  background-color: #777;
+  border: none;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* Header */
+header {
+	background-color: black;
+	background-image: url("../images/maproom.jpg"), url("../images/climbingquebec.jpg"),
+		url("../images/theswing.jpg");
+	background-position: left center, center center, right center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 33.35% 85%;
+	text-align: center;
+	color: #228B22;
+}
+header h2 {
+	font-size: 300%;
+	background-color: black;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	text-shadow: 0 0 10px black,0 0 10px green,
+                 0 0 10px black,0 0 10px green,
+                 0 0 10px black,0 0 10px green,
+                 0 0 10px black,0 0 10px green;
+	transition: 0.4s;
+}
+header h3 {
+	font-size: 150%;
+	line-height: 25em;
+	color: white;
+	text-shadow: 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red;
+}
+header a:hover, a:focus, a:link {
+	color: #228B22;
+}
+header h3 a:hover, a:focus, a:link {
+	color: red;
+	background-color: transparent;
+}
+
+/* Topbar */
+#topbar {
+	background-color: black;
+	font-weight: bold;
+	font-size: 110%;
+}
+#topbar ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: block;
+	position: relative;
+	text-align: center;
+}
+#topbar a {
+	color: white;
+	padding: 14px 16px;
+}
+#topbar a:link, a:visited {
+    color: white;
+}
+#topbar a:hover, a:focus {
+    color: yellow;
+}
+#topbar ul li a.current{
+	color: red;
+}
+#topbar ul li{
+	float: left;
+	width: 20%;
+}
+#topbar ul li a {
+	display: block;
+	text-decoration: none;
+	padding-top: 1em;
+}
+#topbar ul ul {
+	display: none;
+	position: absolute;
+	background-color: black;
+	width: 120px;
+}
+#topbar ul ul li {
+	float: none;
+	width: 110px;
+	text-align: center;
+	padding: 10px 0;
+}
+#topbar ul ul li a:link{
+	margin: 0;
+}
+#topbar ul ul il a{
+	text-align: center;
+	display: block;
+}
+
+/* Main */
+main {
+	text-align: center;
+}
+main h1 {
+	position: center;
+	font-size: 280%;
+	margin-bottom: .5em;
+}
+main h2 {
+	font-size: 125%;
+	margin: .8em 0 .5em 0;
+}
+main h3 {
+	font-size: 110%;
+	margin-bottom: .5em;
+}
+main p {
+	margin-bottom: .5em;
+	font-size: 180%;
+}
+main ul {
+	margin-top: 0;
+}
+figure {
+	float: right;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+figcaption {
+	font-size: 80%;
+	font-weight: bold;
+	font-style: italic;
+	display: block;
+}
+#quicksilver {
+	float: left;
+}
+#left_portrait {
+	margin-right: 300px;
+}
+
+/* Profile Form */
+textarea {
+	text-align: left;
+	height: 6em;
+	width: 30em;
+}
+#bold {
+	font-weight: bold;
+}
+table {
+	margin-left: 23em;
+}
+#login_button {
+	margin-left: -5px;
+}
+input {
+	width: 20em;
+	margin-left: .5em;
+	margin-bottom: .5em;
+}
+.button {
+	font-weight: bold;
+	background-color: #ff5050;
+	border-color: black;
+	width: 8em;
+	position: center;
+}
+#register_button {
+	margin-right: 1.3em;
+}
+#register_new_button {
+	margin-top: 18px;
+	height: 30px;
+	width: 10em;
+}
+/* Footer */
+footer {
+	border-top: 2px solid black;
+	padding: 3px;
+	clear: both;
+    background-color: #990000;
+}
+footer p {
+	font-size: 90%;
+	text-align: center;
+}
+@media print {
+	body {
+		background-color: white;
+	}
+	figure {
+		display: none;
+	}
+	#topbar {
+		display: none;
+	}
+	#button {
+		display: none;
+	}
+}

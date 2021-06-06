@@ -1,0 +1,209 @@
+
+body  {
+	font-family: Times New Roman;
+	margin: 0;
+	padding: 0;
+	border: 3px solid black;
+}
+h1, h2, h3, p {
+	margin: 0;
+	padding: 0;
+}
+a {
+	background-color: black;
+}
+.cookie_banner {
+  position: fixed;
+  bottom: 40px;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  padding: 5px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+.close {
+  height: 20px;
+  background-color: #777;
+  border: none;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+/* Gallery Items for Slideshow */
+* { box-sizing: border-box; }
+.carousel {
+  background: #EEE;
+	border-top: 6px solid #990000;
+}
+@media screen and ( min-width: 768px ) {
+  .carousel img {
+    height: 400px;
+  }
+}
+/* Header */
+header {
+	background-color: black;
+	background-image: url("../images/maproom.jpg"), url("../images/climbingquebec.jpg"),
+		url("../images/theswing.jpg");
+	background-position: left center, center center, right center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 33.35% 85%;
+	text-align: center;
+	color: #228B22;
+}
+header h2 {
+	font-size: 300%;
+	background-color: black;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	text-shadow: 0 0 10px black,0 0 10px green,
+                 0 0 10px black,0 0 10px green,
+                 0 0 10px black,0 0 10px green,
+                 0 0 10px black,0 0 10px green;
+	transition: 0.4s;
+}
+header h3 {
+	font-size: 150%;
+	line-height: 25em;
+	color: white;
+	text-shadow: 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red;
+}
+header a:hover, a:focus, a:link {
+	color: #228B22;
+}
+header h3 a:hover, a:focus, a:link {
+	color: red;
+	background-color: transparent;
+}
+/* Topbar */
+#topbar {
+	background-color: black;
+	font-weight: bold;
+	font-size: 110%;
+}
+#topbar ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: block;
+	position: relative;
+	text-align: center;
+}
+#topbar a {
+	color: white;
+	padding: 14px 16px;
+}
+#topbar a:link, a:visited {
+    color: white;
+}
+#topbar a:hover, a:focus {
+    color: yellow;
+}
+#topbar ul li a.current{
+	color: red;
+}
+#topbar ul li{
+	float: left;
+	width: 20%;
+}
+#topbar ul li a {
+	display: block;
+	text-decoration: none;
+	padding-top: 1em;
+}
+#topbar ul ul {
+	display: none;
+	position: absolute;
+	background-color: black;
+	width: 120px;
+}
+#topbar ul ul li {
+	float: none;
+	width: 110px;
+	text-align: center;
+	padding: 10px 0;
+}
+#topbar ul ul li a:link{
+	margin: 0;
+}
+#topbar ul ul il a{
+	text-align: center;
+	display: block;
+}
+/*Aside*/
+aside {
+	float: left;
+	width: auto;
+}
+aside ul li{
+	border: solid black;
+	list-style: none;
+	background-color: #920a0a;
+}
+aside a:hover, a:focus {
+    color: yellow;
+}
+/* Main */
+main {
+	text-align: center;
+}
+main h1 {
+	font-size: 280%;
+	margin-bottom: .5em;
+}
+main h2 {
+	font-size: 200%;
+	margin: .8em 0 .5em 0;
+}
+main h3 {
+	font-size: 110%;
+	margin-bottom: .5em;
+}
+main p {
+	margin-bottom: .5em;
+	font-size: 120%;
+	text-align: left;
+}
+#nations_empires {
+	color: white;
+	text-shadow: 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red,
+                 0 0 5px black,0 0 5px red;
+}
+main ul {
+	margin-top: 0;
+}
+/* Footer */
+footer {
+	border-top: 2px solid black;
+	padding: 3px;
+	clear: both;
+    background-color: #990000;
+}
+footer p {
+	font-size: 90%;
+	text-align: center;
+}
+
+@media print {
+	body {
+		background-color: white;
+	}
+	figure {
+		display: none;
+	}
+	#topbar {
+		display: none;
+	}
+}
