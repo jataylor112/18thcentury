@@ -2,24 +2,56 @@
 
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>The Long 18th Century</title>
-	<link rel="stylesheet" href="styles/normalize.css">
-	<link rel="stylesheet" href="styles/profile.css">
-	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="stylesheet" href="/18thcentury/styles/normalize.css">
+	<link rel="stylesheet" href="/18thcentury/styles/build.css">
+	<link rel="shortcut icon" href="/18thcentury/images/favicon.ico">
 </head>
 
 <body>
   <header>
-    <h2 id="header"><a href="index.php"><center>The Long 18th Century<center></a></h2>
+		<p><nav id="topbar">
+		<ul>
+		<li><a href="/18thcentury/nations.php">Nations</a></li>
+		<li><a href="/18thcentury/conflicts.php">Conflicts</a></li>
+		<li><a href="/18thcentury/index.php" class="current">Long 18th Century</a></li>
+		<li><a href="/18thcentury/science.php">Science</a></li>
+		<li><a href="/18thcentury/profile.php">Profile</a><br></li>
+		</ul></nav></p><br><br><br> <!-- <br> is needed to keep topbar visible -->
 	<script>
 	window.onscroll = function() {scrollFunction()};
-
 	function scrollFunction() {
 		if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-			document.getElementById("header").style.fontSize = "30px";
-		} else {
-			document.getElementById("header").style.fontSize = "70px";
+			if (window.screen.availWidth < 400) {
+				document.getElementById("topbar").style.fontSize = "70%";
+			} else if (window.screen.availWidth < 615) {
+				document.getElementById("topbar").style.fontSize = "100%";
+			} else if (window.screen.availWidth < 640) {
+				document.getElementById("topbar").style.fontSize = "115%";
+			} else if (window.screen.availWidth < 1000) {
+				document.getElementById("topbar").style.fontSize = "130%";
+			} else if (window.screen.availWidth < 1200) {
+				document.getElementById("topbar").style.fontSize = "150%";
+			} else {
+				document.getElementById("topbar").style.fontSize = "150%";
+			}
+		}
+		else {
+			if (window.screen.availWidth < 400) {
+				document.getElementById("topbar").style.fontSize = "80%";
+			} else if (window.screen.availWidth < 615) {
+				document.getElementById("topbar").style.fontSize = "110%";
+			} else if (window.screen.availWidth < 640) {
+				document.getElementById("topbar").style.fontSize = "130%";
+			} else if (window.screen.availWidth < 1000) {
+				document.getElementById("topbar").style.fontSize = "135%";
+			} else if (window.screen.availWidth < 1200) {
+				document.getElementById("topbar").style.fontSize = "160%";
+			} else {
+				document.getElementById("topbar").style.fontSize = "160%";
+			}
 		}
 	}
 	function blankFields() {
@@ -28,11 +60,11 @@
 				var entry = document.getElementById("entry").value;
 				var reference = document.getElementById("reference").value;
 
-        if ((username == '') && (articleName == '') && (entry == '') && (reference == '')) {
+        if ((articleName == '') && (entry == '') && (reference == '')) {
           alert ("Please enter input in the blank fields!");
 				}
-				else if (username == '') {
-          alert ("Please enter your username!");
+				else if (articleName == " " OR entry == " " OR reference == " ") {
+					alert("Error! Only Spaces Detected!");
 				}
 				else if (articleName == '') {
 					alert ("Please enter the name of the article!");
@@ -45,21 +77,12 @@
 				}
 	}
 	</script>
-	<h3><center>The European Era of <a href="/project/nations_empires.php">Empire</a> and <a href="/project/science_movements.php#science_movements_home">Enlightenment</a></center></h3>
+	<h3 id="europeanSentence">The European Era of <a href="/18thcentury/nations.php">Empire</a> and <a href="/18thcentury/science.php">Enlightenment</a></h3>
   </header>
- <p>
-  <nav id="topbar">
-  <ul>
-	<li><a href="index.php">Home - Introduction</a></li>
-	<li><a href="nations_empires.php">Nations | Empires</a></li>
-	<li><a href="piracy_conflicts.php">Piracy | Conflicts</a></li>
-	<li><a href="science_movements.php">Science | Movements</a></li>
-	<li><a href="profile.php">Profile</a><br></li>
-  </ul></p><br><br><br>
-  </nav>
   <?php
 		if(!isset($_COOKIE["username"])) {
-			echo("<script> if (confirm('You are not registered to make an article! Would you like to go to the login page where you can register?')) {
+			echo("<script>
+			if (confirm('You are not registered to make an article! Would you like to go to the login page where you can register?')) {
 			  window.location.replace('profile.php');
 			} else {
 			  window.location.replace('index.php');
@@ -73,10 +96,10 @@
 			$entry = $_POST["entry"];
 			$reference = $_POST["reference"];
 				if ($username == "" OR $aname == "" OR $entry == "" OR $reference == "") {
-					echo("Error! Blank Fields!");
+					header('location: creation.php#topbar');
 				}
 				else if ($username == " " OR $aname == " " OR $entry == " " OR $reference == " ") {
-					echo("Error! Only Spaces Detected!");
+					header('location: creation.php#topbar');
 				}
 				else {
 					function openConnection() // Opens connection to server
@@ -121,9 +144,25 @@
 												$currentTime = new DateTime();
 												$articleID = "0";
 												$entryID = "0";
+												// Category Names
+												$nations = "nations";
+												$conflicts = "conflicts";
+												$science = "science";
 
-												$sql = "USE $databaseName EXEC insertArticle ?, ?";
-												$preparedStatementArticle = sqlsrv_prepare($conn, $sql, array(&$resAname, &$category));
+												$filePath = "";
+												$fileName = $resAname.".php";
+												if ($category == $nations) {
+													$filePath = "/18thcentury/nations_articles/" . $fileName;
+												}
+												else if ($category == $conflicts) {
+													$filePath = "/18thcentury/conflicts_articles/" . $fileName;
+												}
+												else if ($category == $science) {
+													$filePath = "/18thcentury/science_articles/" . $fileName;
+												}
+
+												$sql = "USE $databaseName EXEC insertArticle ?, ?, ?";
+												$preparedStatementArticle = sqlsrv_prepare($conn, $sql, array(&$resAname, &$category, &$filePath));
 												if(!$preparedStatementArticle) {
 													echo("Preparing preparedStatementArticle isn't working!");
 													die(print_r(sqlsrv_errors(), true));
@@ -179,9 +218,6 @@
 													echo("Executing preparedStatementUserEntry isn't working! Execution aborted! ");
 													die(print_r(sqlsrv_errors(), true));
 												}
-												$ne = "nations_empires";
-												$pc = "piracy_conflicts";
-												$sm = "science_movements";
 												//////////////////////////////////////////////////////////////////////////////////////////////////////////
 												// This section generates a new article page!
 												$templateFile = "template.php";
@@ -189,14 +225,14 @@
 												$templateContent = file_get_contents($templateFile);
 												$file = "$resAname.php";
 												$filePathArticles = "";
-												if ($category == $ne) {
-													$filePathArticles = "C:/xampp/htdocs/project/ne_articles/";
+												if ($category == $nations) {
+													$filePathArticles = "C:/xampp/htdocs/18thcentury/nations_articles/";
 												}
-												else if ($category == $pc) {
-													$filePathArticles = "C:/xampp/htdocs/project/pc_articles/";
+												else if ($category == $conflicts) {
+													$filePathArticles = "C:/xampp/htdocs/18thcentury/conflicts_articles/";
 												}
-												else if ($category == $sm) {
-													$filePathArticles = "C:/xampp/htdocs/project/sm_articles/";
+												else if ($category == $science) {
+													$filePathArticles = "C:/xampp/htdocs/18thcentury/science_articles/";
 												}
 												$selectSQL = "EXEC selectArticleID ?";
 												$selectQuery = sqlsrv_query($conn, $selectSQL, array(&$resAname));
@@ -205,70 +241,29 @@
 												}
 												else
 												{
+
 													$articleNewID = sqlsrv_get_field($selectQuery, 0); // 0 is the first row in result set
-													$newArticleFile = str_replace($placeholder, $articleNewID, $templateContent);
+													$nationswArticleFile = str_replace($placeholder, $articleNewID, $templateContent);
 													$fileName = $resAname.".php";
 													$fp = fopen($filePathArticles.$fileName, "w");
-													fwrite($fp, $newArticleFile);
+													fwrite($fp, $nationswArticleFile);
 													fclose($fp);
-													//////////////////////////////////////////////////////////////////////
-													$file = $category . "UPDATE.php";
-													$filePath = "";
-													if ($category == $ne) {
-														$filePath = "/project/ne_articles/" . $fileName;
-													}
-													else if ($category == $pc) {
-														$filePath = "/project/pc_articles/" . $fileName;
-													}
-													else if ($category == $sm) {
-														$filePath = "/project/sm_articles/" . $fileName;
-													}
-													$data = "<tr><td><h2><a href='$filePath' style='color: #000000'>" . $resAname . "</a></h2></td></tr>";
-
-													file_put_contents($file, $data, FILE_APPEND);
-
-
-													// To output the final html file:
-													if ($category == $ne) {
-														$updatePage = file_get_contents('nations_empiresUPDATE.php');
-														$filePathArticles = "C:/xampp/htdocs/project/ne_articles/";
-													}
-													else if ($category == $pc) {
-														$updatePage = file_get_contents('piracy_conflictsUPDATE.php');
-														$filePathArticles = "C:/xampp/htdocs/project/pc_articles/";
-													}
-													else if ($category == $sm) {
-														$updatePage = file_get_contents('science_movementsUPDATE.php');
-														$filePathArticles = "C:/xampp/htdocs/project/sm_articles/";
-													}
-
-													$fp = fopen('$category.php', 'w');
-													if(!$fp)
-													  die('Could not create or open text file for writing!');
-													  if(fwrite($fp, $updatePage) === false)
-													  die('Could not write to text file!');
-
-													/*
-													readfile('nations_empiresBASE.php');
-													readfile('update.php');
-													readfile('nations_empiresBOTTOM.php');
-													*/
 												}
 												//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-												if ($category == $ne) {
+												if ($category == $nations) {
 													echo("<p>$category</p>");
-													header("Location: $ne.php");
+													header("Location: $nations.php");
 													die();
 												}
-												else if ($category == $pc) {
+												else if ($category == $conflicts) {
 													echo("<p>$category</p>");
-													header("Location: $pc.php");
+													header("Location: $conflicts.php");
 													die();
 												}
-												else if ($category == $sm) {
+												else if ($category == $science) {
 													echo("<p>$category</p>");
-													header("Location: $sm.php");
+													header("Location: $science.php");
 													die();
 												}
 
@@ -300,8 +295,8 @@
 	}
   ?>
   <main>
-    <h1>Article Creation</h1>
-	<h3>Only letters, numbers, and punctation marks can be submited - Any special characters will be removed in submission</h3>
+  <h1>Article Creation</h1>
+	<h3>Only letters, numbers, and punctation marks can be submited in the article's content - Any special characters will be removed in submission!</h3>
 	<figure>
 	<img src="images/mailsnow.png" height="200" width="200" id="mailsnow">
 	<figcaption>The Mail Coach in a Drift of Snow</figcaption>
@@ -312,38 +307,41 @@
 	</figure>
 	  <title>New_Article</title>
 		<form name="article" action="creation.php" onsubmit="article_new_button" method="post" id="article_form">
-		  <table border="0" cellpadding="2" cellspacing="0" id="registration_form">
+		  <table border="0" cellpadding="2" cellspacing="0" id="article_table">
 			<tbody id="article_create_table">
 			  <tr>
-				<td width="171" style="margin:4 auto;width:90%;text-align:left">
+				<td width="171">
 				  <input type="text" name="article_title" placeholder="Name of Article" id="article_title">
 				</td>
 			  </tr>
 			  <tr>
-			    <td width="171" style="margin:4 auto;width:90%;text-align:left">
+			    <td width="171">
 				  <select name="category" id="category">
-					<option value="nations_empires" selected>Nations | Empires</option>
-					<option value="piracy_conflicts">Piracy | Conflicts</option>
-					<option value="science_movements">Science | Movements</option>
+					<option value="nations" selected>Nations</option>
+					<option value="conflicts">Conflicts</option>
+					<option value="science">Science</option>
 				  </select>
 				</td>
 			  </tr>
 			  <tr>
-			    <td style="margin:0 auto;width:90%;text-align:left"> <textarea name="entry" id="entry" rows="30" cols="30" placeholder="Article Content"></textarea> </td>
+			    <td> <textarea name="entry" id="entry" rows="30" cols="30" placeholder="Article Content"></textarea> </td>
 			  </tr>
 			  <tr>
-			    <td style="margin:0 auto;width:90%;text-align:left"> <textarea name="reference" id="reference" rows="30" cols="30" placeholder="Content References"></textarea> </td>
+			    <td> <textarea name="reference" id="reference" rows="30" cols="30" placeholder="Content References"></textarea> </td>
 			  </tr>
 			</tbody>
 		  </table>
 		  <h1></h1>
 		  <input type="submit" value="Submit" class="button" id="register_new_button" name="submit" onclick="blankFields()">
 		</form>
-	<h1></h1> <!-- Empy Space -->
+	&nbsp; <!-- Empty Space -->
   </main>
 
-  <footer>
-	<p></p>
+	<footer>
+		<table style="margin-left: auto; margin-right: auto; border-spacing: 10px; border-collapse: separate">
+			<tr><td><a href="/18thcentury/cookie_policy.html">Cookie Policy</a></td>
+			<td><a href="/18thcentury/contact.php">Contact</a></td></tr>
+		</table>
   </footer>
 </body>
 </html>

@@ -2,26 +2,58 @@
 
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>The Long 18th Century</title>
-	<link rel="stylesheet" href="/project/styles/normalize.css">
-	<link rel="stylesheet" href="/project/styles/main.css">
-	<link rel="shortcut icon" href="/project/images/favicon.ico">
+	<link rel="stylesheet" href="/18thcentury/styles/normalize.css">
+	<link rel="stylesheet" href="/18thcentury/styles/main.css">
+	<link rel="shortcut icon" href="/18thcentury/images/favicon.ico">
 </head>
 
 <body>
   <header>
-    <h2 id="header"><a href="/project/index.php"><center>The Long 18th Century<center></a></h2>
-	<script>
-	window.onscroll = function() {scrollFunction()};
-
-	function scrollFunction() {
-	if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-		document.getElementById("header").style.fontSize = "30px";
-	} else {
-		document.getElementById("header").style.fontSize = "70px";
-	}
-	}
+		<p><nav id="topbar">
+		<ul>
+		<li><a href="/18thcentury/nations.php">Nations</a></li>
+		<li><a href="/18thcentury/conflicts.php">Conflicts</a></li>
+		<li><a href="/18thcentury/index.php" class="current">Long 18th Century</a></li>
+		<li><a href="/18thcentury/science.php">Science</a></li>
+		<li><a href="/18thcentury/profile.php">Profile</a><br></li>
+		</ul></nav></p><br><br><br> <!-- <br> is needed to keep topbar visible -->
+	 <script>
+	 window.onscroll = function() {scrollFunction()};
+	 function scrollFunction() {
+		 if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+			 if (window.screen.availWidth < 400) {
+				 document.getElementById("topbar").style.fontSize = "70%";
+			 } else if (window.screen.availWidth < 615) {
+				 document.getElementById("topbar").style.fontSize = "100%";
+			 } else if (window.screen.availWidth < 640) {
+				 document.getElementById("topbar").style.fontSize = "115%";
+			 } else if (window.screen.availWidth < 1000) {
+				 document.getElementById("topbar").style.fontSize = "130%";
+			 } else if (window.screen.availWidth < 1200) {
+				 document.getElementById("topbar").style.fontSize = "150%";
+			 } else {
+				 document.getElementById("topbar").style.fontSize = "150%";
+			 }
+		 }
+		 else {
+			 if (window.screen.availWidth < 400) {
+				 document.getElementById("topbar").style.fontSize = "80%";
+			 } else if (window.screen.availWidth < 615) {
+				 document.getElementById("topbar").style.fontSize = "110%";
+			 } else if (window.screen.availWidth < 640) {
+				 document.getElementById("topbar").style.fontSize = "130%";
+			 } else if (window.screen.availWidth < 1000) {
+				 document.getElementById("topbar").style.fontSize = "135%";
+			 } else if (window.screen.availWidth < 1200) {
+				 document.getElementById("topbar").style.fontSize = "160%";
+			 } else {
+				 document.getElementById("topbar").style.fontSize = "160%";
+			 }
+		 }
+	 }
 	function redirect() {
     window.location.replace('editArticle.php');
 	}
@@ -37,32 +69,22 @@
 				clearInterval(fadeEffect);
 			}
 		}, 100);
-		document.cookie = 'acknowledgement=1';
+		document.cookie = 'acknowledgement = 1';
 	}
 	</script>
-	<h3><center>The European Era of <a href="/project/nations_empires.php">Empire</a> and <a href="/project/science_movements.php">Enlightenment</a></center></h3>
-  </header>
- <p>
-  <nav id="topbar">
-  <ul>
-	<li><a href="/project/index.php">Home - Introduction</a></li>
-	<li><a href="/project/nations_empires.php">Nations | Empires</a></li>
-	<li><a href="/project/piracy_conflicts.php">Piracy | Conflicts</a></li>
-	<li><a href="/project/science_movements.php">Science | Movements</a></li>
-	<li><a href="/project/my_profile.php">Profile</a><br></li>
-  </ul></p><br><br><br>
-  </nav>
-<?php
+	<h3 id="europeanSentence">The European Era of <a href="/18thcentury/nations.php">Empire</a> and <a href="/18thcentury/science.php">Enlightenment</a></h3>
+	</header>
+	<?php
 	if(!isset($_COOKIE["acknowledgement"])){
 		echo("<div class='cookie_banner' id='cookie_banner'>");
-		echo("<p style='color: green'>By using our website, you agree to our <a href='cookie_policy.html' style='color: red'>cookie policy</a>.</p>");
+		echo("<p style='color: black'>By using our website, you agree to our <a href='cookie_policy.html' style='color: red'>cookie policy</a>.</p>");
 		echo("<button class='close' id='cookie_button' name='cookie_button' onclick='fadeOutEffect()'>&times;</button>");
 		echo("</div>");
 		if(array_key_exists('cookie_button', $_POST)) {
 			setcookie("acknowledgement", 1, time() + (86400 * 30), "/"); // 86400 = 1 day
 		}
 	}
-?>
+	?>
   <main>
 	  <title>Article Description</title>
 	    <form name="article">
@@ -74,7 +96,7 @@
 				{
 					try
 					{
-						include 'C:/xampp/htdocs/project/connection.php';
+						include 'C:/xampp/htdocs/18thcentury/connection.php';
 						$connectionOptions = array("Database"=>$databaseName,
 							"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 						$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -118,7 +140,7 @@
 				{
 					try
 					{
-						include 'C:/xampp/htdocs/project/connection.php';
+						include 'C:/xampp/htdocs/18thcentury/connection.php';
 						$connectionOptions = array("Database"=>$databaseName,
 							"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 						$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -160,7 +182,7 @@
 					{
 						try
 						{
-							include 'C:/xampp/htdocs/project/connection.php';
+							include 'C:/xampp/htdocs/18thcentury/connection.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 							$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -200,7 +222,7 @@
 					{
 						try
 						{
-							include 'C:/xampp/htdocs/project/connection.php';
+							include 'C:/xampp/htdocs/18thcentury/connection.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 							$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -245,9 +267,9 @@
 		if (isset($_POST['submit'])){
 			if(!isset($_COOKIE["username"])){
 				echo("<script> if (confirm('You are not registered to edit an article! Would you like to go to the login page where you can register?')) {
-					window.location.replace('/project/profile.php');
+					window.location.replace('/18thcentury/profile.php');
 				} else {
-					window.location.replace('/project/index.php');
+					window.location.replace('/18thcentury/index.php');
 				} </script>");
 			}
 			else
@@ -256,7 +278,7 @@
 				{
 					try
 					{
-						include 'C:/xampp/htdocs/project/connection.php';
+						include 'C:/xampp/htdocs/18thcentury/connection.php';
 						$connectionOptions = array("Database"=>$databaseName,
 							"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 						$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -311,12 +333,12 @@
 											$data = ("<!DOCTYPE html>;
 											<html lang='en'>
 											  <?php
-												$articleIDResult = '$article_ID';
-												$articleTitle = '$articleTitleResult';
-												$entries = '$entriesResult';
-												$references = '$referencesResult';
-												$author = '$creatorResult';
-											   ?>
+													$articleIDResult = '$article_ID';
+													$articleTitle = '$articleTitleResult';
+													$entries = '$entriesResult';
+													$references = '$referencesResult';
+													$author = '$creatorResult';
+											  ?>
 											</html>");
 											file_put_contents($filename, $data);
 											header("location: editArticle.php");
@@ -341,18 +363,21 @@
 			}
 		}
 	?>
+	&nbsp; <!-- Empty Space -->
 	<form onsubmit="submit_button" method="post">
-	<aside>
-    <ul>
-    	<li style="background-color: black; border-color: #228B22; border-width: 4px;"><input type="submit" value="Want to edit this article?" class="button" id="submit_button" name="submit"></li>
-    </ul>
-	</aside>
+	<input type="submit" value="Want to edit this article?" class="button" id="createArticle" onclick="redirect()" id="submit_button" name="submit"
+				style="float: left">
+				&nbsp; <!-- Empty Space -->
+				&nbsp; <!-- Empty Space -->
 	</form>
-	<h1></h1>
+	&nbsp; <!-- Empty Space -->
   </main>
 
-  <footer>
-	<p></p>
+	<footer>
+		<table style="margin-left: auto; margin-right: auto; border-spacing: 10px; border-collapse: separate">
+			<tr><td><a href="/18thcentury/cookie_policy.html">Cookie Policy</a></td>
+			<td><a href="/18thcentury/contact.php">Contact</a></td></tr>
+		</table>
   </footer>
 </body>
 </html>

@@ -2,95 +2,123 @@
 
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>The Long 18th Century</title>
-	<link rel="stylesheet" href="styles/normalize.css">
-	<link rel="stylesheet" href="styles/profile.css">
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="stylesheet" type="text/css" media="print" href="styles/print.css">
+	<link rel="stylesheet" href="/18thcentury/styles/normalize.css">
+	<link rel="stylesheet" href="/18thcentury/styles/build.css">
+	<link rel="shortcut icon" href="/18thcentury/images/favicon.ico">
+
 </head>
 
 <body>
   <header>
-    <h2 id="header"><a href="index.php"><center>The Long 18th Century<center></a></h2>
-	<script>
-	window.onscroll = function() {scrollFunction()};
+			<p><nav id="topbar">
+			<ul>
+			<li><a href="/18thcentury/nations.php">Nations</a></li>
+			<li><a href="/18thcentury/conflicts.php">Conflicts</a></li>
+			<li><a href="/18thcentury/index.php">Long 18th Century</a></li>
+			<li><a href="/18thcentury/science.php">Science</a></li>
+			<li><a href="/18thcentury/profile.php" class="current">Profile</a><br></li>
+			</ul></nav></p><br><br><br> <!-- <br> is needed to keep topbar visible -->
+		<script>
+		window.onscroll = function() {scrollFunction()};
+		function scrollFunction() {
+		  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+				if (window.screen.availWidth < 400) {
+					document.getElementById("topbar").style.fontSize = "70%";
+				} else if (window.screen.availWidth < 615) {
+					document.getElementById("topbar").style.fontSize = "100%";
+				} else if (window.screen.availWidth < 640) {
+					document.getElementById("topbar").style.fontSize = "115%";
+				} else if (window.screen.availWidth < 1000) {
+					document.getElementById("topbar").style.fontSize = "130%";
+				} else if (window.screen.availWidth < 1200) {
+					document.getElementById("topbar").style.fontSize = "150%";
+				} else {
+					document.getElementById("topbar").style.fontSize = "150%";
+				}
+		  }
+			else {
+				if (window.screen.availWidth < 400) {
+					document.getElementById("topbar").style.fontSize = "80%";
+				} else if (window.screen.availWidth < 615) {
+					document.getElementById("topbar").style.fontSize = "110%";
+				} else if (window.screen.availWidth < 640) {
+					document.getElementById("topbar").style.fontSize = "130%";
+				} else if (window.screen.availWidth < 1000) {
+					document.getElementById("topbar").style.fontSize = "135%";
+				} else if (window.screen.availWidth < 1200) {
+					document.getElementById("topbar").style.fontSize = "160%";
+				} else {
+					document.getElementById("topbar").style.fontSize = "160%";
+				}
+		  }
+		}
+		function fadeOutEffect() {
+			var fadeTarget = document.getElementById("cookie_banner");
+			var fadeEffect = setInterval(function () {
+				if (!fadeTarget.style.opacity) {
+					fadeTarget.style.opacity = 1;
+				}
+				if (fadeTarget.style.opacity > 0) {
+					fadeTarget.style.opacity -= 0.1;
+				} else {
+					clearInterval(fadeEffect);
+				}
+			}, 100);
+			document.cookie = 'acknowledgement = 1';
+		}
+		function blankFields() {
+	        var username = document.getElementById("username").value;
+	        var firstName = document.getElementById("firstname").value;
+					var lastName = document.getElementById("lastname").value;
+					var email = document.getElementById("email").value;
+					var passwordFirst = document.getElementById("password").value;
+	        var passwordConfirm = document.getElementById("confirm_password").value;
 
-	function scrollFunction() {
-	if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-		document.getElementById("header").style.fontSize = "30px";
-	} else {
-		document.getElementById("header").style.fontSize = "70px";
-	}
-	}
-	function blankFields() {
-        var username = document.getElementById("username").value;
-        var firstName = document.getElementById("firstname").value;
-				var lastName = document.getElementById("lastname").value;
-				var email = document.getElementById("email").value;
-				var passwordFirst = document.getElementById("password").value;
-        var passwordConfirm = document.getElementById("confirm_password").value;
+					if ((passwordFirst.length < 4) || (passwordConfirm.length < 4)) {
+						if ((username.length >= 1) && (firstName.length >= 1) && (lastName.length >= 1) && (email.length >= 1)) {
+							alert ("Your password needs at least 4 characters!");
+						}
+					}
 
-				if (passwordFirst.length < 4) {
-					alert ("Your password needs at least 4 characters!");
-				}
-
-        if ((username == '') && (firstName == '') && (lastName == '') && (email == '') && (passwordFirst == '') && (passwordConfirm == '')) {
-          alert ("Please enter input in the blank fields!");
-				}
-				else if (username == '') {
-          alert ("Please enter your username!");
-				}
-				else if (firstName == '') {\
-					alert ("Please enter your first name!");
-				}
-				else if (lastName == '') {
-					alert ("Please enter your last name!");
-				}
-				else if (email == '') {
-					alert ("Please enter your email!");
-				}
-        else if (passwordFirst == '') {
-          alert ("Please enter your password!");
-				}
-        else if (passwordConfirm == '') {
-          alert ("Please confirm your password!");
-				}
-				else if (passwordFirst != '' && passwordConfirm != '' && passwordFirst != passwordConfirm) {
-					alert ("\nPasswords do not match! Please try again!");
-				}
-	}
-	function fadeOutEffect() {
-		var fadeTarget = document.getElementById("cookie_banner");
-		var fadeEffect = setInterval(function () {
-			if (!fadeTarget.style.opacity) {
-				fadeTarget.style.opacity = 1;
-			}
-			if (fadeTarget.style.opacity > 0) {
-				fadeTarget.style.opacity -= 0.1;
-			} else {
-				clearInterval(fadeEffect);
-			}
-		}, 100);
-		document.cookie = 'acknowledgement=1';
-	}
-	</script>
-	<h3><center>The European Era of <a href="/project/nations_empires.php">Empire</a> and <a href="/project/science_movements.php">Enlightenment</a></center></h3>
-  </header>
- <p>
-  <nav id="topbar">
-  <ul>
-	<li><a href="index.php">Home - Introduction</a></li>
-	<li><a href="nations_empires.php">Nations | Empires</a></li>
-	<li><a href="piracy_conflicts.php">Piracy | Conflicts</a></li>
-	<li><a href="science_movements.php">Science | Movements</a></li>
-	<li><a href="profile.php" class="current">Profile</a><br></li>
-  </ul></p><br><br><br>
-  </nav>
-  <?php
-    if(!isset($_COOKIE["acknowledgement"])){
-		echo("<div class='cookie_banner'>");
-		echo("<p style='color: green'>By using our website, you agree to our <a href='cookie_policy.html' style='color: red'>cookie policy</a>.</p>");
+	        if ((username == '') && (firstName == '') && (lastName == '') && (email == '') && (passwordFirst == '') && (passwordConfirm == '')) {
+	          alert ("Please enter input in the blank fields!");
+					}
+					else if (username == '') {
+	          alert ("Please enter your username!");
+					}
+					else if (firstName == '') {
+						alert ("Please enter your first name!");
+					}
+					else if (lastName == '') {
+						alert ("Please enter your last name!");
+					}
+					else if (email == '') {
+						alert ("Please enter your email!");
+					}
+	        else if (passwordFirst == '') {
+	          alert ("Please enter your password!");
+					}
+	        else if (passwordConfirm == '') {
+	          alert ("Please confirm your password!");
+					}
+					else if (passwordFirst != '' && passwordConfirm != '' && passwordFirst != passwordConfirm) {
+						alert ("\nPasswords do not match! Please try again!");
+					}
+					else if (username.contains(" ") || firstName.contains(" ") || lastName.contains(" ") ||
+					email.conains(" ") || passwordFirst.contains(" ") || passwordConfirm.contains(" ")) {
+						alert ("Error! Spaces Detected!");
+					}
+		}
+		</script>
+		<h3 id="europeanSentence">The European Era of <a href="/18thcentury/nations.php">Empire</a> and <a href="/18thcentury/science.php">Enlightenment</a></h3>
+	</header>
+	<?php
+	if(!isset($_COOKIE["acknowledgement"])){
+		echo("<div class='cookie_banner' id='cookie_banner'>");
+		echo("<p style='color: black'>By using our website, you agree to our <a href='cookie_policy.html' style='color: red'>cookie policy</a>.</p>");
 		echo("<button class='close' id='cookie_button' name='cookie_button' onclick='fadeOutEffect()'>&times;</button>");
 		echo("</div>");
 		if(array_key_exists('cookie_button', $_POST)) {
@@ -108,18 +136,18 @@
 			$password = $_POST["password"];
 			$confirmPassword = $_POST["confirm_password"];
 			if ($password != $confirmPassword) {
-				echo("Error! Passwords do not match!");
+				header('location: registration.php');
 			}
 			else if (strlen($password) < 4) {
-					echo("Error! Password is less than 4 characters!");
+				header('location: registration.php');
 				}
 			else
 			{
 				if ($username == "" OR $fname == "" OR $lname == "" OR $email == "") {
-					echo("Error! Blank Fields!");
+					header('location: registration.php');
 				}
 				else if ($username == " " OR $fname == " " OR $lname == " " OR $email == " ") {
-					echo("Error! Only Spaces Detected!");
+					header('location: registration.php');
 				}
 				else {
 					function openConnection() // Opens connection to server
@@ -182,12 +210,9 @@
 													sqlsrv_execute($preparedStatement);
 													setcookie("username", $resUsername, time() + (86400 * 30), "/"); // 86400 = 1 day
 													echo("<script>
-													if (confirm('Success! Your username is: $resUsername. Your password is: $resPassword')) {
-													  window.location.href = 'index.php#home';
-													} else {
-													  window.location.href = 'my_profile.php';
-													}
+													alert ('Success! Your username is: $resUsername. Your password is: $resPassword')
 													</script>");
+													header('location: my_profile.php');
 													sqlsrv_close($conn);
 												}
 												catch(Exception $e)
@@ -220,18 +245,18 @@
 												$sql = "EXEC insertUser ?, ?, ?, ?, ?";
 												$preparedStatement = sqlsrv_prepare($conn, $sql, array(&$resUsername, &$resFname, &$resLname, &$email, &$resPassword)); // $procedure_params
 												if(!$preparedStatement) {
-													echo("<p>ERROR AT LINE 216!</p>");
+													echo("<p>ERROR!</p>");
 													die(print_r(sqlsrv_errors(), true));
 												}
 												sqlsrv_execute($preparedStatement);
 												setcookie("username", $resUsername, time() + (86400 * 30), "/"); // 86400 = 1 day
-													echo("<script>
-													if (confirm('Success! Your username is: $resUsername. Your password is: $resPassword')) {
-													  window.location.href = 'index.php#home';
-													} else {
-													  window.location.href = 'my_profile.php';
-													}
-													</script>");
+												echo("<script>
+												if (confirm('Success! Your username is: $resUsername. Your password is: $resPassword')) {
+												  window.location.href = 'index.php#topbar';
+												} else {
+												  window.location.href = 'my_profile.php#topbar';
+												}
+												</script>");
 												sqlsrv_close($conn);
 											}
 											catch(Exception $e)
@@ -261,7 +286,7 @@
 		}
   ?>
   <main>
-    <h1>Registration</h1>
+  <h1>Registration</h1>
 	<h3>Only letters and numbers can be submited - Any special characters will be removed in submission</h3>
 	<h3>Passwords need to be 4 characters or more!</h3>
 	<figure>
@@ -274,51 +299,51 @@
 	</figure>
 	  <title>Registration</title>
 		<form name="registration" action="registration.php" onsubmit="register_new_button" method="post" id="registration_form">
-		  <table width="230" border="0" cellpadding="2" cellspacing="0" id="registration_form">
+		  <table width="500" border="0" cellpadding="2" cellspacing="0" id="registration_table">
 			<tbody>
 			  <tr>
-				<td width="95">
-				  <div align="right" id="bold">Username:</div>
+				<td width="200">
+				  <div align="right" id="bold" style="margin-bottom: 5px;">Username:</div>
 				</td>
 				<td width="171">
 				  <input type="text" name="username" id="username" required="">
 				</td>
 			  </tr>
 			  <tr>
-				<td width="95">
-				  <div align="right" id="bold">First Name:</div>
+				<td width="200">
+				  <div align="right" id="bold" style="margin-bottom: 5px;">First Name:</div>
 				</td>
 				<td width="171">
 				  <input type="text" name="firstname" id="firstname" required="">
 				</td>
 			  </tr>
 			  <tr>
-				<td width="95">
-				  <div align="right" id="bold">Last Name:</div>
+				<td width="200">
+				  <div align="right" id="bold" style="margin-bottom: 5px;">Last Name:</div>
 				</td>
 				<td width="171">
 				  <input type="text" name="lastname" id="lastname" required="">
 				</td>
 			  </tr>
 			  <tr>
-				<td width="95">
-				  <div align="right" id="bold">Email:</div>
+				<td width="200">
+				  <div align="right" id="bold" style="margin-bottom: 5px;">Email:</div>
 				</td>
 				<td width="171">
 				  <input type="email" name="email" id="email" required="">
 				</td>
 			  </tr>
 			  <tr>
-				<td width="95">
-				  <div align="right" id="bold">Password:</div>
+				<td width="200">
+				  <div align="right" id="bold" style="margin-bottom: 5px;">Password:</div>
 				</td>
 				<td width="171">
 				  <input type="password" name="password" id="password" required="">
 				</td>
 			  </tr>
 			  <tr>
-				<td width="95">
-				  <div align="right" id="bold">Confirm_Password:</div>
+				<td width="200">
+				  <div align="right" id="bold" style="margin-bottom: 5px;">Confirm Password:</div>
 				</td>
 				<td width="171">
 				  <input type="password" name="confirm_password" id="confirm_password">
@@ -326,13 +351,17 @@
 			  </tr>
 			</tbody>
 		  </table>
+			<h2></h2> <!-- Empty Space -->
 		  <input type="submit" value="Submit" class="button" id="register_new_button" name="register" onclick="blankFields()">
 		</form>
-	<h1></h1>
+	&nbsp; <!-- Empty Space -->
   </main>
 
-  <footer>
-	<p></p>
+	<footer>
+		<table style="margin-left: auto; margin-right: auto; border-spacing: 10px; border-collapse: separate">
+			<tr><td><a href="/18thcentury/cookie_policy.html">Cookie Policy</a></td>
+			<td><a href="/18thcentury/contact.php">Contact</a></td></tr>
+		</table>
   </footer>
 </body>
 </html>

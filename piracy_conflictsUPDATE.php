@@ -1,1 +1,0 @@
-<tr><td><h2><a href='/project/pc_articles/Piracy in the Caribbean.php' style='color: #000000'>Piracy in the Caribbean</a></h2></td></tr>

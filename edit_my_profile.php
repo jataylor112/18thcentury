@@ -2,29 +2,58 @@
 
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>The Long 18th Century</title>
-	<link rel="stylesheet" href="styles/normalize.css">
-	<link rel="stylesheet" href="styles/profile.css">
-	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="stylesheet" href="/18thcentury/styles/normalize.css">
+	<link rel="stylesheet" href="/18thcentury/styles/build.css">
+	<link rel="shortcut icon" href="/18thcentury/images/favicon.ico">
 </head>
 
 <body>
   <header>
-    <h2 id="header"><a href="index.php"><center>The Long 18th Century<center></a></h2>
-	<script>
-	window.onscroll = function() {scrollFunction()};
-
-	function scrollFunction() {
-	if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-		document.getElementById("header").style.fontSize = "30px";
-	} else {
-		document.getElementById("header").style.fontSize = "70px";
-	}
-	}
-	function redirect() {
-		window.location.replace('/project/my_profile_edit.php');
-	}
+		<p><nav id="topbar">
+		<ul>
+		<li><a href="/18thcentury/nations.php">Nations</a></li>
+		<li><a href="/18thcentury/conflicts.php">Conflicts</a></li>
+		<li><a href="/18thcentury/index.php">Long 18th Century</a></li>
+		<li><a href="/18thcentury/science.php">Science</a></li>
+		<li><a href="/18thcentury/profile.php" class="current">Profile</a><br></li>
+		</ul></nav></p><br><br><br> <!-- <br> is needed to keep topbar visible -->
+	 <script>
+	 window.onscroll = function() {scrollFunction()};
+	 function scrollFunction() {
+		 if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+			 if (window.screen.availWidth < 400) {
+				 document.getElementById("topbar").style.fontSize = "70%";
+			 } else if (window.screen.availWidth < 615) {
+				 document.getElementById("topbar").style.fontSize = "100%";
+			 } else if (window.screen.availWidth < 640) {
+				 document.getElementById("topbar").style.fontSize = "115%";
+			 } else if (window.screen.availWidth < 1000) {
+				 document.getElementById("topbar").style.fontSize = "130%";
+			 } else if (window.screen.availWidth < 1200) {
+				 document.getElementById("topbar").style.fontSize = "150%";
+			 } else {
+				 document.getElementById("topbar").style.fontSize = "150%";
+			 }
+		 }
+		 else {
+			 if (window.screen.availWidth < 400) {
+				 document.getElementById("topbar").style.fontSize = "80%";
+			 } else if (window.screen.availWidth < 615) {
+				 document.getElementById("topbar").style.fontSize = "110%";
+			 } else if (window.screen.availWidth < 640) {
+				 document.getElementById("topbar").style.fontSize = "130%";
+			 } else if (window.screen.availWidth < 1000) {
+				 document.getElementById("topbar").style.fontSize = "135%";
+			 } else if (window.screen.availWidth < 1200) {
+				 document.getElementById("topbar").style.fontSize = "160%";
+			 } else {
+				 document.getElementById("topbar").style.fontSize = "160%";
+			 }
+		 }
+	 }
 	function fadeOutEffect() {
 		var fadeTarget = document.getElementById("cookie_banner");
 		var fadeEffect = setInterval(function () {
@@ -37,25 +66,16 @@
 				clearInterval(fadeEffect);
 			}
 		}, 100);
-		document.cookie = 'acknowledgement=1';
+		document.cookie = 'acknowledgement = 1';
 	}
 	</script>
-	<h3><center>The European Era of <a href="/project/nations_empires.php">Empire</a> and <a href="/project/science_movements.php">Enlightenment</a></center></h3>
-  </header>
- <p>
-  <nav id="topbar">
-  <ul>
-	<li><a href="index.php">Home - Introduction</a></li>
-	<li><a href="nations_empires.php">Nations | Empires</a></li>
-	<li><a href="piracy_conflicts.php">Piracy | Conflicts</a></li>
-	<li><a href="science_movements.php">Science | Movements</a></li>
-	<li><a href="my_profile.php" class="current">Profile</a><br></li>
-  </ul></p><br><br><br>
-  </nav>
-<?php
+	<h3 style="text-align: center">The European Era of</h3>
+	<h3 style="text-align: center"><a href="/18thcentury/nations.php">Empire</a> and <a href="/18thcentury/science.php">Enlightenment</a></h3>
+	</header>
+	<?php
 	if(!isset($_COOKIE["acknowledgement"])){
-		echo("<div class='cookie_banner'>");
-		echo("<p style='color: green'>By using our website, you agree to our <a href='cookie_policy.html' style='color: red'>cookie policy</a>.</p>");
+		echo("<div class='cookie_banner' id='cookie_banner'>");
+		echo("<p style='color: black'>By using our website, you agree to our <a href='cookie_policy.html' style='color: red'>cookie policy</a>.</p>");
 		echo("<button class='close' id='cookie_button' name='cookie_button' onclick='fadeOutEffect()'>&times;</button>");
 		echo("</div>");
 		if(array_key_exists('cookie_button', $_POST)) {
@@ -80,7 +100,7 @@
 			{
 				try
 				{
-					include 'C:/xampp/htdocs/project/connection.php';
+					include 'C:/xampp/htdocs/18thcentury/connection.php';
 					$connectionOptions = array("Database"=>$databaseName,
 						"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 					$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -102,7 +122,7 @@
 								{
 									try
 									{
-										include 'C:/xampp/htdocs/project/connection.php';
+										include 'C:/xampp/htdocs/18thcentury/connection.php';
 										$connectionOptions = array("Database"=>$databaseName,
 											"Uid"=>$uid, "PWD"=>$pwd);
 										$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -150,7 +170,7 @@
     <h1>Editing Your Profile</h1>
 	<h1></h1>
 	  <title>Editing Profile</title>
-	    <form name="login" action="edit_my_profile.php" onsubmit="submit_button" method="post" id="edit_profile_form">
+	    <form name="login" action="edit_my_profile.php" onsubmit="submit_button" method="post">
 		  <table width="230" border="0" cellpadding="2" cellspacing="0" id="edit_profile_table">
 		    <tbody>
 			  <tr>
@@ -345,11 +365,14 @@
 		  </table>
 		  <input type="submit" value="Submit" class="button" id="submit_button" name="submit">
 	    </form>
-	<h1></h1>
+	&nbsp; <!-- Empty Space -->
   </main>
 
-  <footer>
-	<p></p>
+	<footer>
+		<table style="margin-left: auto; margin-right: auto; border-spacing: 10px; border-collapse: separate">
+			<tr><td><a href="/18thcentury/cookie_policy.html">Cookie Policy</a></td>
+			<td><a href="/18thcentury/contact.php">Contact</a></td></tr>
+		</table>
   </footer>
 </body>
 </html>
