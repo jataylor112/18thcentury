@@ -100,27 +100,29 @@
 	}
 	if(isset($_COOKIE["username"])){
 		header('location: my_profile.php');
+		die();
 	}
 	if (isset($_POST['registerButton'])){
 		header('location: registration.php');
+		die();
 	}
 	if (isset($_POST['loginButton'])){
 		$username = $_POST["username"];
 		$password = $_POST["password"];
 		if ($username == "" OR $password == "") {
-			header('location: profile.php#topbar');
+			header('location: profile.php');
 		}
 		else
 			{
 				if ($username == " " OR $password == " ") {
-					header('location: profile.php#topbar');
+					header('location: profile.php');
 				}
 				else {
 					function openConnection() // Opens connection to server
 					{
 						try
 						{
-							include 'connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 							$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -167,7 +169,7 @@
 													if($selectPassword == True)
 													{
 														setcookie("username", $resUsername, time() + (86400 * 30), "/"); // 86400 = 1 day
-														header('location: my_profile.php#topbar');
+														header('location: my_profile.php');
 													}
 													else
 													{

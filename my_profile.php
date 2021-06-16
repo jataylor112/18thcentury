@@ -124,7 +124,7 @@
 				{
 					try
 					{
-						include 'connection.php';
+						include 'C:/xampp/htdocs/connection.php';
 						$connectionOptions = array("Database"=>$databaseName,
 							"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 						$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -185,7 +185,7 @@
 					{
 						try
 						{
-							include 'connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 							$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -244,7 +244,7 @@
 					{
 						try
 						{
-							include 'connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 							$conn = sqlsrv_connect($serverName, $connectionOptions);

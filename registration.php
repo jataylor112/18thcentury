@@ -127,6 +127,7 @@
 	}
 	if(isset($_COOKIE["username"])){
 		header('location: my_profile.php');
+		die();
 	}
 		if (isset($_POST['register'])){
 			$username = $_POST["username"];
@@ -154,7 +155,7 @@
 					{
 						try
 						{
-							include 'connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 							$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -188,7 +189,7 @@
 											{
 												try
 												{
-													include 'connection.php';
+													include 'C:/xampp/htdocs/connection.php';
 													$connectionOptions = array("Database"=>$databaseName,
 														"Uid"=>$uid, "PWD"=>$pwd);
 													$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -228,7 +229,7 @@
 										{
 											try
 											{
-												include 'connection.php';
+												include 'C:/xampp/htdocs/connection.php';
 												$connectionOptions = array("Database"=>$databaseName,
 													"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 												$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -252,9 +253,9 @@
 												setcookie("username", $resUsername, time() + (86400 * 30), "/"); // 86400 = 1 day
 												echo("<script>
 												if (confirm('Success! Your username is: $resUsername. Your password is: $resPassword')) {
-												  window.location.href = 'index.php#topbar';
+												  window.location.href = 'index.php';
 												} else {
-												  window.location.href = 'my_profile.php#topbar';
+												  window.location.href = 'my_profile.php';
 												}
 												</script>");
 												sqlsrv_close($conn);

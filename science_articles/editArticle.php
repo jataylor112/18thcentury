@@ -96,7 +96,7 @@
 				{
 					try
 					{
-						include 'C:/xampp/htdocs/18thcentury/connection.php';
+						include 'C:/xampp/htdocs/connection.php';
 						$connectionOptions = array("Database"=>$databaseName,
 							"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 						$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -118,7 +118,7 @@
 									{
 										try
 										{
-											include 'C:/xampp/htdocs/18thcentury/connection.php';
+											include 'C:/xampp/htdocs/connection.php';
 											include 'variables.php';
 											$connectionOptions = array("Database"=>$databaseName,
 												"Uid"=>$uid, "PWD"=>$pwd);
@@ -209,7 +209,7 @@
 	}
   ?>
   <main>
-    <h1>Article Modification</h1>
+  <h1>Article Modification</h1>
 	<h3>Only letters, numbers, and punctation marks can be submited in the article's content - Any special characters will be removed in submission!</h3>
 	<figure>
 	<img src="/18thcentury/images/mailsnow.png" height="200" width="200" id="mailsnow">
@@ -229,7 +229,7 @@
 					{
 						try
 						{
-							include 'C:/xampp/htdocs/18thcentury/connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							include	'variables.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
@@ -273,7 +273,7 @@
 					{
 						try
 						{
-							include 'C:/xampp/htdocs/18thcentury/connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							include	'variables.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
@@ -328,7 +328,7 @@
 					{
 						try
 						{
-							include 'C:/xampp/htdocs/18thcentury/connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							include	'variables.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
@@ -372,7 +372,7 @@
 					{
 						try
 						{
-							include 'C:/xampp/htdocs/18thcentury/connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							include	'variables.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");

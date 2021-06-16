@@ -78,9 +78,9 @@
   <?php
 	if(!isset($_COOKIE["username"])) {
 		echo("<script> if (confirm('You are not registered to edit an article! Would you like to go to the login page where you can register?')) {
-			window.location.replace('profile.php');
+			window.location.replace('/18thcentury/profile.php');
 		} else {
-			window.location.replace('index.php');
+			window.location.replace('/18thcentury/index.php');
 		} </script>");
 	}
 	for ($x = 0; $x <= 0; $x++) {
@@ -99,7 +99,7 @@
 				{
 					try
 					{
-						include 'C:/xampp/htdocs/18thcentury/connection.php';
+						include 'C:/xampp/htdocs/connection.php';
 						$connectionOptions = array("Database"=>$databaseName,
 							"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 						$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -121,7 +121,7 @@
 									{
 										try
 										{
-											include 'C:/xampp/htdocs/18thcentury/connection.php';
+											include 'C:/xampp/htdocs/connection.php';
 											include 'variables.php';
 											$connectionOptions = array("Database"=>$databaseName,
 												"Uid"=>$uid, "PWD"=>$pwd);
@@ -213,7 +213,7 @@
 	}
   ?>
   <main>
-    <h1>Article Modification</h1>
+  <h1>Article Modification</h1>
 	<h3>Only letters, numbers, and punctation marks can be submited in the article's content - Any special characters will be removed in submission!</h3>
 	<figure>
 	<img src="/18thcentury/images/mailsnow.png" height="200" width="200" id="mailsnow">
@@ -233,7 +233,7 @@
 					{
 						try
 						{
-							include 'C:/xampp/htdocs/18thcentury/connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							include	'variables.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
@@ -277,7 +277,7 @@
 					{
 						try
 						{
-							include 'C:/xampp/htdocs/18thcentury/connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							include	'variables.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
@@ -332,7 +332,7 @@
 					{
 						try
 						{
-							include 'C:/xampp/htdocs/18thcentury/connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							include	'variables.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
@@ -375,7 +375,7 @@
 					{
 						try
 						{
-							include 'C:/xampp/htdocs/18thcentury/connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							include	'variables.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
@@ -415,7 +415,7 @@
 			</tbody>
 		  </table>
 		  <h2></h2> <!-- Empty Space -->
-		  <input type="submit" value="Submit" class="button" id="register_new_button" name="submit" onclick="blankFields()">
+		  <input type="submit" value="Submit" class="button" id="article_new_button" name="submit" onclick="blankFields()">
 		</form>
 		&nbsp; <!-- Empty Space -->
   </main>

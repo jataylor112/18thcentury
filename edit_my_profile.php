@@ -84,6 +84,7 @@
 	}
 	if(!isset($_COOKIE["username"])){
 		header('location: profile.php');
+		die();
 	}
 	if (isset($_POST['submit'])){
 		$fname = $_POST["firstname"];
@@ -100,7 +101,7 @@
 			{
 				try
 				{
-					include 'C:/xampp/htdocs/18thcentury/connection.php';
+					include 'C:/xampp/htdocs/connection.php';
 					$connectionOptions = array("Database"=>$databaseName,
 						"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 					$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -122,7 +123,7 @@
 								{
 									try
 									{
-										include 'C:/xampp/htdocs/18thcentury/connection.php';
+										include 'C:/xampp/htdocs/connection.php';
 										$connectionOptions = array("Database"=>$databaseName,
 											"Uid"=>$uid, "PWD"=>$pwd);
 										$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -191,7 +192,7 @@
 				{
 					try
 					{
-						include 'connection.php';
+						include 'C:/xampp/htdocs/connection.php';
 						$connectionOptions = array("Database"=>$databaseName,
 							"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 						$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -252,7 +253,7 @@
 					{
 						try
 						{
-							include 'connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 							$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -311,7 +312,7 @@
 					{
 						try
 						{
-							include 'connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 							$conn = sqlsrv_connect($serverName, $connectionOptions);

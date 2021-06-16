@@ -153,6 +153,12 @@ a {
 	#edit_profile_table {
 		margin-left: 22%;
 	}
+	#article_table {
+		margin-left: 30%;
+	}
+	#article_title {
+		width: 160px;
+	}
 	input {
 		width: 2em;
 		margin-left: 0px;
@@ -255,6 +261,9 @@ a {
 	#edit_profile_table {
 		margin-left: 30%;
 	}
+	#article_table {
+		margin-left: 38%;
+	}
 	input {
 		width: 2em;
 		margin-left: 0px;
@@ -352,6 +361,9 @@ a {
 	}
 	#edit_profile_table {
 		margin-left: 34%;
+	}
+	#article_table {
+		margin-left: 38%;
 	}
 	input {
 		width: 2em;
@@ -458,6 +470,9 @@ a {
 	#edit_profile_table {
 		margin-left: 35%;
 	}
+	#article_table {
+		margin-left: 39%;
+	}
 	input {
 		width: 2em;
 		margin-left: 0px;
@@ -555,6 +570,9 @@ a {
 	}
 	#edit_button {
 		margin-right: 2.5%;
+	}
+	#article_table {
+		margin-left: 42%;
 	}
 	input {
 		width: 2em;
@@ -670,6 +688,9 @@ a {
 	}
 	#edit_profile_table {
 		margin-left: 40%;
+	}
+	#article_table {
+		margin-left: 43%;
 	}
 	input {
 		width: 2em;
@@ -789,6 +810,9 @@ a {
 	#edit_profile_table {
 		margin-left: 30%;
 	}
+	#article_table {
+		margin-left: 38%;
+	}
 	textarea {
 		overflow: auto;
 		height: 100px;
@@ -883,15 +907,15 @@ a {
 	table td {
 		height: 10%;
 	}
-	#login_table {
+	#login_table, #edit_profile_table {
 		margin-left: 33%;
 	}
 	#profile_table {
 		margin-left: 40%;
 		font-size: 20px;
 	}
-	#edit_profile_table {
-		margin-left: 33%;
+	#article_table {
+		margin-left: 38%;
 	}
 	textarea {
 		overflow: auto;

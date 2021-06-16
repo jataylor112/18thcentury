@@ -71,7 +71,7 @@
 	}
 	function redirectCheck() {
 		if (confirm('You are not registered to make an article! Would you like to go to the login page where you can register?')) {
-			window.location.replace('profile.php');
+			window.location.replace('/18thcentury/profile.php');
 		} else {
 			window.location.replace('science.php');
 		}
@@ -111,7 +111,7 @@
 			{
 				try
 				{
-					include 'connection.php';
+					include 'C:/xampp/htdocs/connection.php';
 					$connectionOptions = array("Database"=>$databaseName,
 						"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 					$conn = sqlsrv_connect($serverName, $connectionOptions);

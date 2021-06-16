@@ -63,7 +63,7 @@
         if ((articleName == '') && (entry == '') && (reference == '')) {
           alert ("Please enter input in the blank fields!");
 				}
-				else if (articleName == " " OR entry == " " OR reference == " ") {
+				else if ((articleName == " ") || (entry == " ") || (reference == " ")) {
 					alert("Error! Only Spaces Detected!");
 				}
 				else if (articleName == '') {
@@ -83,9 +83,9 @@
 		if(!isset($_COOKIE["username"])) {
 			echo("<script>
 			if (confirm('You are not registered to make an article! Would you like to go to the login page where you can register?')) {
-			  window.location.replace('profile.php');
+			  window.location.replace('/18thcentury/profile.php');
 			} else {
-			  window.location.replace('index.php');
+			  window.location.replace('/18thcentury/index.php');
 			} </script>");
 		}
 	for ($x = 0; $x <= 0; $x++) {
@@ -96,17 +96,17 @@
 			$entry = $_POST["entry"];
 			$reference = $_POST["reference"];
 				if ($username == "" OR $aname == "" OR $entry == "" OR $reference == "") {
-					header('location: creation.php#topbar');
+					header('location: creation.php');
 				}
 				else if ($username == " " OR $aname == " " OR $entry == " " OR $reference == " ") {
-					header('location: creation.php#topbar');
+					header('location: creation.php');
 				}
 				else {
 					function openConnection() // Opens connection to server
 					{
 						try
 						{
-							include 'connection.php';
+							include 'C:/xampp/htdocs/connection.php';
 							$connectionOptions = array("Database"=>$databaseName,
 								"Uid"=>$uid, "PWD"=>$pwd, "ColumnEncryption"=>"Enabled");
 							$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -128,7 +128,7 @@
 										{
 											try
 											{
-												include 'connection.php';
+												include 'C:/xampp/htdocs/connection.php';
 												$connectionOptions = array("Database"=>$databaseName,
 													"Uid"=>$uid, "PWD"=>$pwd);
 												$conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -332,7 +332,7 @@
 			</tbody>
 		  </table>
 		  <h1></h1>
-		  <input type="submit" value="Submit" class="button" id="register_new_button" name="submit" onclick="blankFields()">
+		  <input type="submit" value="Submit" class="button" name="submit" onclick="blankFields()">
 		</form>
 	&nbsp; <!-- Empty Space -->
   </main>
