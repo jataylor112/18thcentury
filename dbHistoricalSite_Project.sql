@@ -62,6 +62,16 @@ INSERT INTO [USER_ACCOUNT] VALUES ( 'theadminJarrett',
 									HASHBYTES('SHA2_512', '1234'),
 									'admin' );
 GO
+
+CREATE USER [admin_KatieM] WITHOUT LOGIN
+ALTER ROLE [admin] ADD MEMBER [admin_KatieM]
+INSERT INTO [USER_ACCOUNT] VALUES ( 'theadminKatie',
+									'Katie',
+									'McGrath',
+									'thisisanemail@gmail.com',
+									HASHBYTES('SHA2_512', '1234'),
+									'admin' );
+GO
 -------------------------------------------------------------------------------------------------
 -- Stored Procedures
 CREATE PROC selectUsers
