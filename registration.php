@@ -127,7 +127,6 @@
 	}
 	if(isset($_COOKIE["username"])){
 		header('location: my_profile.php');
-		die();
 	}
 		if (isset($_POST['register'])){
 			$username = $_POST["username"];
@@ -213,7 +212,9 @@
 													echo("<script>
 													alert ('Success! Your username is: $resUsername. Your password is: $resPassword')
 													</script>");
-													header('location: my_profile.php');
+													echo("<script>
+													window.location.replace('my_profile.php');
+													</script>");
 													sqlsrv_close($conn);
 												}
 												catch(Exception $e)

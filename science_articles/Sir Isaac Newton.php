@@ -105,7 +105,7 @@
 						if($conn == true)
 							try
 							{
-								$article_ID = "{article_ID}";
+								$article_ID = "2";
 								$selectSQL = "EXEC selectArticle $article_ID";
 								$selectQuery = sqlsrv_query($conn, $selectSQL);
 								if(sqlsrv_fetch($selectQuery) === false) {
@@ -149,7 +149,7 @@
 						if($conn == true)
 							try
 							{
-								$article_ID = "{article_ID}";
+								$article_ID = "2";
 								$selectSQL = "EXEC selectEntry $article_ID";
 								$selectQueryEntry = sqlsrv_query($conn, $selectSQL);
 								echo("<td>");
@@ -191,7 +191,7 @@
 							if($conn == true)
 								try
 								{
-									$article_ID = "{article_ID}";
+									$article_ID = "2";
 									$selectSQL = "EXEC selectReference $article_ID";
 									$selectQueryReference = sqlsrv_query($conn, $selectSQL);
 									echo("<td>");
@@ -231,7 +231,7 @@
 							if($conn == true)
 								try
 								{
-									$article_ID = "{article_ID}";
+									$article_ID = "2";
 									$selectSQL = "EXEC selectUserCreator $article_ID";
 									$selectQuery = sqlsrv_query($conn, $selectSQL);
 									if(sqlsrv_fetch($selectQuery) === false) {
@@ -286,7 +286,7 @@
 						if($conn == true)
 							try
 							{
-								$article_ID = "{article_ID}";
+								$article_ID = "2";
 								$selectSQL = "EXEC selectArticle $article_ID";
 								$selectQuery = sqlsrv_query($conn, $selectSQL);
 								if(sqlsrv_fetch($selectQuery) === false) {

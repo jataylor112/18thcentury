@@ -173,17 +173,14 @@
 											if ($category == $nations) {
 												echo("<p>$category</p>");
 												header("Location: /18thcentury/$nations.php");
-												die();
 											}
 											else if ($category == $conflicts) {
 												echo("<p>$category</p>");
 												header("Location: /18thcentury/$conflicts.php");
-												die();
 											}
 											else if ($category == $science) {
 												echo("<p>$category</p>");
 												header("Location: /18thcentury/$science.php");
-												die();
 											}
 											sqlsrv_close($conn);
 										}

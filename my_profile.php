@@ -157,7 +157,6 @@
 								else { // If no usernames are in USER_ACCOUNT, this function activates!
 									echo("<script> alert ('No users are in the database!'); </script>");
 									header('location: registration.php');
-									die();
 								}
 								sqlsrv_close($conn);
 							}
@@ -306,8 +305,11 @@
 	</form>
   </main>
 
-  <footer>
-	<p></p>
+	<footer>
+		<table style="margin-left: auto; margin-right: auto; border-spacing: 10px; border-collapse: separate">
+			<tr><td><a href="/18thcentury/cookie_policy.html">Cookie Policy</a></td>
+			<td><a href="/18thcentury/contact.php">Contact</a></td></tr>
+		</table>
   </footer>
 </body>
 </html>

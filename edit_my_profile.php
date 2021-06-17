@@ -84,7 +84,6 @@
 	}
 	if(!isset($_COOKIE["username"])){
 		header('location: profile.php');
-		die();
 	}
 	if (isset($_POST['submit'])){
 		$fname = $_POST["firstname"];
@@ -225,7 +224,6 @@
 								else { // If no usernames are in USER_ACCOUNT, this function activates!
 									echo("<script> alert ('No users are in the database!'); </script>");
 									header('location: registration.php');
-									die();
 								}
 								sqlsrv_close($conn);
 							}

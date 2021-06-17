@@ -560,7 +560,7 @@ a {
 	}
 	#edit_table {
 		margin-left: 37%;
-		width: 40%;
+		width: 44%;
 	}
 	input {
 		width: 2em;
@@ -587,6 +587,9 @@ a {
 	}
 	.button {
 		width: 25%;
+	}
+	#logout_button {
+		margin-left: 50%;
 	}
 	#editArticle {
 		width: 25%;

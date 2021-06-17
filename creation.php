@@ -254,17 +254,14 @@
 												if ($category == $nations) {
 													echo("<p>$category</p>");
 													header("Location: $nations.php");
-													die();
 												}
 												else if ($category == $conflicts) {
 													echo("<p>$category</p>");
 													header("Location: $conflicts.php");
-													die();
 												}
 												else if ($category == $science) {
 													echo("<p>$category</p>");
 													header("Location: $science.php");
-													die();
 												}
 
 												sqlsrv_close($conn);

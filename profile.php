@@ -89,33 +89,30 @@
 		<h3 id="europeanSentence">The European Era of <a href="/18thcentury/nations.php">Empire</a> and <a href="/18thcentury/science.php">Enlightenment</a></h3>
 	</header>
   <?php
-	if(!isset($_COOKIE["acknowledgement"])){
-		echo("<div class='cookie_banner' id='cookie_banner'>");
-		echo("<p style='color: black'>By using our website, you agree to our <a href='cookie_policy.html' style='color: red'>cookie policy</a>.</p>");
-		echo("<button class='close' id='cookie_button' name='cookie_button' onclick='fadeOutEffect()'>&times;</button>");
-		echo("</div>");
-		if(array_key_exists('cookie_button', $_POST)) {
-			setcookie("acknowledgement", 1, time() + (86400 * 30), "/"); // 86400 = 1 day
-		}
-	}
 	if(isset($_COOKIE["username"])){
-		header('location: my_profile.php');
-		die();
+		echo("<script>
+		window.location.replace('my_profile.php');
+		</script>");
 	}
 	if (isset($_POST['registerButton'])){
-		header('location: registration.php');
-		die();
+		echo("<script>
+		window.location.replace('registration.php');
+		</script>");
 	}
 	if (isset($_POST['loginButton'])){
 		$username = $_POST["username"];
 		$password = $_POST["password"];
 		if ($username == "" OR $password == "") {
-			header('location: profile.php');
+			echo("<script>
+			window.location.replace('profile.php');
+			</script>");
 		}
 		else
 			{
 				if ($username == " " OR $password == " ") {
-					header('location: profile.php');
+					echo("<script>
+					window.location.replace('profile.php');
+					</script>");
 				}
 				else {
 					function openConnection() // Opens connection to server
@@ -142,7 +139,6 @@
 									$row_count = sqlsrv_num_rows($sqlStatement);
 									if ($row_count === false)
 									   echo("<p>Error in retreiving row count!</p>");
-
 									if ($row_count > 0) {
 										$selectSQL = "EXEC selectUsername $resUsername";
 										$selectQuery = sqlsrv_query($conn, $selectSQL);
@@ -168,8 +164,7 @@
 													$selectPassword = sqlsrv_has_rows($selectQuery);
 													if($selectPassword == True)
 													{
-														setcookie("username", $resUsername, time() + (86400 * 30), "/"); // 86400 = 1 day
-														header('location: my_profile.php');
+														setcookie("username", $resUsername, time() + (8000000 * 30), "/"); // 86400 = 1 day
 													}
 													else
 													{
@@ -199,7 +194,7 @@
 				}
 			}
 		}
-   ?>
+  ?>
   <main>
   <h1>Login</h1>
 	<figure>
@@ -240,7 +235,16 @@
 		</form>
 		&nbsp; <!-- Empty Space -->
   </main>
-
+	<?php 	if(!isset($_COOKIE["acknowledgement"])){
+			echo("<div class='cookie_banner' id='cookie_banner'>");
+			echo("<p style='color: black'>By using our website, you agree to our <a href='cookie_policy.html' style='color: red'>cookie policy</a>.</p>");
+			echo("<button class='close' id='cookie_button' name='cookie_button' onclick='fadeOutEffect()'>&times;</button>");
+			echo("</div>");
+			if(array_key_exists('cookie_button', $_POST)) {
+				setcookie("acknowledgement", 1, time() + (86400 * 30), "/"); // 86400 = 1 day
+			}
+		}
+	?>
 	<footer>
 		<table style="margin-left: auto; margin-right: auto; border-spacing: 10px; border-collapse: separate">
 			<tr><td><a href="/18thcentury/cookie_policy.html">Cookie Policy</a></td>

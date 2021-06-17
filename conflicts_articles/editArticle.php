@@ -172,17 +172,14 @@
 											if ($category == $nations) {
 												echo("<p>$category</p>");
 												header("Location: /18thcentury/$nations.php");
-												die();
 											}
 											else if ($category == $conflicts) {
 												echo("<p>$category</p>");
 												header("Location: /18thcentury/$conflicts.php");
-												die();
 											}
 											else if ($category == $science) {
 												echo("<p>$category</p>");
 												header("Location: /18thcentury/$science.php");
-												die();
 											}
 											sqlsrv_close($conn);
 										}
@@ -224,8 +221,8 @@
 	</figure>
 	  <title>New_Article</title>
 		<form name="article" action="editArticle.php" onsubmit="article_new_button" method="post" id="article_form">
-		  <table border="0" cellpadding="2" cellspacing="0" id="registration_form">
-			<tbody id="article_create_table">
+		  <table border="0" cellpadding="2" cellspacing="0" id="edit_table">
+			<tbody>
 			  <tr>
 				  <?php
 					function openConnectionArticle() // Opens connection to server
@@ -416,6 +413,7 @@
 			</tbody>
 		  </table>
 		  &nbsp; <!-- Empty Space -->
+			<h2></h2> <!-- Empty Space -->
 		  <input type="submit" value="Submit" class="button" id="register_new_button" name="submit" onclick="blankFields()">
 		</form>
 		&nbsp; <!-- Empty Space -->
